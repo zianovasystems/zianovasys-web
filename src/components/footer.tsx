@@ -12,7 +12,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <Logo className="h-8 w-8 text-primary" />
-              <span className="font-bold font-headline text-lg">Zianova</span>
+              <span className="font-bold font-headline text-lg">Zianova Aigen System Private Limited</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Zianova — AI-Driven Precision for Enterprise Systems.
