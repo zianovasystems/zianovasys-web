@@ -1,7 +1,7 @@
 import { AnimatedSection } from "@/components/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Bot, Database, Workflow } from "lucide-react";
+import { ArrowRight, Bot, Database, Workflow, Mic, FileCheck, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,54 +39,69 @@ export default function ProductsPage() {
                             <div className="grid md:grid-cols-2 gap-12 items-center">
                                 <div className="space-y-6">
                                     <div className="flex items-center space-x-3">
-                                        <Bot className="h-10 w-10 text-primary" />
+                                        <div className="h-12 w-12 rounded-lg bg-gray-900 flex items-center justify-center shadow-lg">
+                                            <Stethoscope className="h-6 w-6 text-white" />
+                                        </div>
                                         <h2 className="text-3xl md:text-4xl font-bold font-headline">MedisVoice</h2>
                                     </div>
                                     <p className="text-xl text-muted-foreground leading-relaxed">
-                                        AI-generated medical documentation product driven by AI in complete HMS (Hospital Management System) workflows.
+                                        Transforming patient interactions into structured medical records instantly.
                                     </p>
                                     <ul className="space-y-4">
                                         <li className="flex items-start">
                                             <div className="bg-primary/10 p-2 rounded-full mr-4 mt-1">
-                                                <Bot className="h-5 w-5 text-primary" />
+                                                <Mic className="h-5 w-5 text-primary" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-lg">AI-Driven Documentation</h3>
-                                                <p className="text-muted-foreground">Automated generation of medical records using advanced natural language processing.</p>
+                                                <h3 className="font-bold text-lg">Speak Once.</h3>
+                                                <p className="text-muted-foreground">Capture the full patient story in a single natural conversation.</p>
                                             </div>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="bg-primary/10 p-2 rounded-full mr-4 mt-1">
-                                                <Workflow className="h-5 w-5 text-primary" />
+                                                <FileCheck className="h-5 w-5 text-primary" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-lg">Seamless HMS Integration</h3>
-                                                <p className="text-muted-foreground">Integrates effortlessly with existing Hospital Management System workflows.</p>
+                                                <h3 className="font-bold text-lg">Document Perfectly.</h3>
+                                                <p className="text-muted-foreground">Zero-error transcription and structuring of clinical notes.</p>
                                             </div>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="bg-primary/10 p-2 rounded-full mr-4 mt-1">
-                                                <Database className="h-5 w-5 text-primary" />
+                                                <Sparkles className="h-5 w-5 text-primary" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-lg">Structured Data</h3>
-                                                <p className="text-muted-foreground">Converts voice and unstructured notes into structured, queryable medical data.</p>
+                                                <h3 className="font-bold text-lg">AI-Powered Medical Documentation.</h3>
+                                                <p className="text-muted-foreground">Advanced NLP models trained specifically for medical terminology and workflows.</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <div className="bg-primary/10 p-2 rounded-full mr-4 mt-1">
+                                                <ShieldCheck className="h-5 w-5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg">Trusted by Healthcare Professionals Worldwide.</h3>
+                                                <p className="text-muted-foreground">Secure, compliant, and reliable for high-stakes clinical environments.</p>
                                             </div>
                                         </li>
                                     </ul>
-                                    <div className="pt-4">
+                                    <div className="pt-4 flex gap-4">
                                         <Button asChild size="lg" className="rounded-full">
+                                            <a href="https://medisvoice.com" target="_blank" rel="noopener noreferrer">
+                                                Visit MedisVoice <ArrowRight className="ml-2 h-5 w-5" />
+                                            </a>
+                                        </Button>
+                                        <Button asChild size="lg" variant="outline" className="rounded-full">
                                             <Link href="/contact">
-                                                Request Demo <ArrowRight className="ml-2 h-5 w-5" />
+                                                Contact Sales
                                             </Link>
                                         </Button>
                                     </div>
                                 </div>
                                 <div className="rounded-xl overflow-hidden shadow-2xl border border-border/50">
-                                    {/* Placeholder for product interface image */}
                                     <div className="aspect-video bg-muted/50 flex items-center justify-center relative">
                                         <Image
-                                            src="/images/imgi_1_.webp"
+                                            src="/images/medisvoice-product.png"
                                             alt="MedisVoice Interface"
                                             fill
                                             className="object-cover"
