@@ -7,8 +7,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { WhatsAppButton } from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
-  title: 'Zianova AiGen Systems Pvt Ltd. | Empowering Innovation in Software Development',
-  description: 'Zianova AiGen Systems Pvt Ltd specializes in empowering innovation in software development for startups and SMBs with cutting-edge AI solutions.',
+  title: 'Zianova AiGen Systems Pvt Ltd. | Enterprise AI & Engineering Solutions',
+  description: 'Zianova AiGen Systems Pvt Ltd delivers enterprise-grade, AI-driven software solutions to solve complex business problems with point precision across all industries.',
 };
 
 export default function RootLayout({

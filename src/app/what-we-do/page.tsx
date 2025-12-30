@@ -23,8 +23,8 @@ export default function WhatWeDoPage() {
 
         <AnimatedSection className="w-full relative z-10 container mx-auto px-4 text-center">
           <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 drop-shadow-sm">What We Do</h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
-            We offer a comprehensive suite of software development and AI services to help your business grow and innovate.
+          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed">
+            We help enterprises solve high-impact problems using AI-driven, point-precision solutions tailored to real-world business and engineering needs.
           </p>
         </AnimatedSection>
       </section>

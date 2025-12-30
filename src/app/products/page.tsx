@@ -24,9 +24,9 @@ export default function ProductsPage() {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/50 to-background" />
 
                 <AnimatedSection className="w-full relative z-10 container mx-auto px-4 text-center">
-                    <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 drop-shadow-sm">Our Products</h1>
-                    <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
-                        Innovative AI-driven solutions transforming healthcare workflows.
+                    <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 drop-shadow-sm">AI-Driven Solutions <br /> Built for Enterprise Scale</h1>
+                    <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed">
+                        Zianova delivers purpose-built AI solutions that address complex, high-stakes business problems, applying intelligence exactly where it creates the greatest impact.
                     </p>
                 </AnimatedSection>
             </section>

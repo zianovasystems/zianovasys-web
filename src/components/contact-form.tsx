@@ -1,10 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef, useTransition, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -25,6 +24,7 @@ export function ContactForm() {
   const { toast } = useToast();
   const initialState: FormState = { success: false, message: "" };
   const [state, formAction] = useActionState(submitInquiry, initialState);
+  const [isPending, startTransition] = useTransition();
 
   const form = useForm<FormData>({
     resolver: zodResolver(inquirySchema),
@@ -35,6 +35,17 @@ export function ContactForm() {
     },
   });
 
+  const onSubmit = (data: FormData) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("message", data.message);
+
+    startTransition(() => {
+      formAction(formData);
+    });
+  };
+
   useEffect(() => {
     if (state.message) {
       toast({
@@ -43,20 +54,24 @@ export function ContactForm() {
         variant: state.success ? "default" : "destructive",
       });
       if (state.success) {
-        form.reset();
+        form.reset({
+          name: "",
+          email: "",
+          message: "",
+        });
       }
     }
   }, [state, toast, form]);
 
   return (
     <Form {...form}>
-      <form action={formAction} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>Full Name <span className="text-red-500">*</span></FormLabel>
               <FormControl>
                 <Input placeholder="John Doe" {...field} />
               </FormControl>
@@ -69,7 +84,7 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel>Email Address <span className="text-red-500">*</span></FormLabel>
               <FormControl>
                 <Input placeholder="you@example.com" type="email" {...field} />
               </FormControl>
@@ -82,7 +97,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Message</FormLabel>
+              <FormLabel>Your Message <span className="text-red-500">*</span></FormLabel>
               <FormControl>
                 <Textarea placeholder="How can we help you?" {...field} rows={6} />
               </FormControl>
@@ -90,8 +105,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
-          Send Message
+        <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting || isPending}>
+          {isPending ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </Form>

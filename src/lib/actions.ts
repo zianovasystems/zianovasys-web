@@ -14,6 +14,12 @@ export type FormState = {
 };
 
 // This is a mock action. In a real app, you would connect to Firebase here.
+import nodemailer from "nodemailer";
+
+// ... existing imports
+
+// ... existing schema
+
 export async function submitInquiry(
   prevState: FormState,
   formData: FormData
@@ -33,20 +39,68 @@ export async function submitInquiry(
     };
   }
 
+  const { name, email, message } = validatedFields.data;
+
   try {
-    // Here you would save the data to Firestore.
-    // For example: await db.collection('inquiries').add(validatedFields.data);
-    console.log("New inquiry submitted:", validatedFields.data);
+    const port = Number(process.env.SMTP_PORT);
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: port,
+      // secure: true for 465, false for other ports
+      secure: port === 465,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+    });
+
+    const recipient = "shaik.m.rafi@zianovasys.com";
+    const subject = `New Inquiry from ${name} - Zianova Website`;
+    const emailBody = `
+      <h3>New Inquiry Received</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+    `;
+
+    // specific check for missing env vars to avoid attempting connection
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+      console.warn("⚠️ SMTP settings not missing in environment variables. Falling back to console log.");
+      console.log(`--- [SIMULATION] Sending Email ---`);
+      console.log(`To: ${recipient}`);
+      console.log(`Subject: ${subject}`);
+      console.log(`Body: ${emailBody}`);
+      console.log(`--- [SIMULATION] End ---`);
+    } else {
+      await transporter.sendMail({
+        from: `"${name}" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`, // sender address
+        to: recipient, // receiver
+        replyTo: email,
+        subject: subject, // Subject line
+        html: emailBody, // html body
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}` // plain text body
+      });
+      console.log(`Email sent successfully to ${recipient}`);
+    }
 
     return {
       success: true,
       message: "Thank you for your message! We will get back to you soon.",
     };
-  } catch (error) {
-    console.error("Error submitting inquiry:", error);
+  } catch (error: any) {
+    console.error("Error sending email:", error);
+
+    let errorMessage = "Failed to send email.";
+    if (error.responseCode === 535) {
+      errorMessage = "Authentication failed. Please check your SMTP Password (use an App Password for Gmail).";
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+
     return {
       success: false,
-      message: "Something went wrong. Please try again later.",
+      message: errorMessage,
     };
   }
 }

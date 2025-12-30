@@ -14,7 +14,9 @@ import { Logo } from "./icons";
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "What We Do", href: "/what-we-do" },
+  { label: "Industries", href: "/industries" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Technology", href: "/technology" },
   { label: "Products", href: "/products" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },

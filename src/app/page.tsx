@@ -28,22 +28,21 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/80 to-transparent/5" />
 
         <AnimatedSection className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl text-left">
-            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 text-gray-900 drop-shadow-sm leading-tight">
-              Zianova AiGen <br className="hidden md:block" />
-              <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Systems Pvt Ltd</span>
+          <div className="max-w-4xl text-left">
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-7xl font-bold tracking-tighter mb-8 text-gray-900 drop-shadow-sm leading-tight">
+              Solving Complex <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Enterprise Problems</span> with AI-Driven Precision
             </h1>
             <p className="max-w-2xl text-xl md:text-2xl text-gray-600 mb-10 font-headline leading-relaxed">
-              Empowering Innovation in Software Development for Startups and SMBs.
+              Zianova delivers AI-powered, high-precision solutions that address complex business and engineering challenges across industries — from strategy to scalable implementation.
             </p>
             <div className="flex flex-wrap gap-6 justify-start">
               <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/contact">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Talk to Our AI Experts <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-gray-300 hover:bg-gray-100 text-gray-900">
-                <Link href="/about">Learn More</Link>
+                <Link href="/contact">Request Enterprise Consultation</Link>
               </Button>
             </div>
           </div>
