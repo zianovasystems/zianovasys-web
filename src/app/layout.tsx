@@ -8,7 +8,7 @@ import { WhatsAppButton } from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
   title: 'Zianova AiGen Systems Pvt Ltd. | Empowering Innovation in Software Development',
-  description: 'Zianova AiGen Systems specializes in empowering innovation in software development for startups and SMBs with cutting-edge AI solutions.',
+  description: 'Zianova AiGen Systems Pvt Ltd specializes in empowering innovation in software development for startups and SMBs with cutting-edge AI solutions.',
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

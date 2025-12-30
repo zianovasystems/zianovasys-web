@@ -12,29 +12,46 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center">
-      <AnimatedSection className="w-full">
-        <section className="text-center py-20 lg:py-32 px-4">
-          <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-            Zianova AiGen Systems
-          </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-8 font-headline">
-            Empowering Innovation in Software Development.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/about">Learn More</Link>
-            </Button>
+      <section className="relative h-screen min-h-[600px] w-full flex items-center justify-start overflow-hidden">
+        {/* Background Image - Fixed effect for parallax feel */}
+        <div className="absolute inset-0 -z-20">
+          <Image
+            src="/images/imgi_117_rs=w_3070,m.webp"
+            alt="Hero Background"
+            fill
+            className="object-cover opacity-100 dark:opacity-40 brightness-75"
+            priority
+          />
+        </div>
+
+        {/* Modern Gradient Overlay - Left weighted for readability */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/80 to-transparent/5" />
+
+        <AnimatedSection className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl text-left">
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 text-gray-900 drop-shadow-sm leading-tight">
+              Zianova AiGen <br className="hidden md:block" />
+              <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Systems Pvt Ltd</span>
+            </h1>
+            <p className="max-w-2xl text-xl md:text-2xl text-gray-600 mb-10 font-headline leading-relaxed">
+              Empowering Innovation in Software Development for Startups and SMBs.
+            </p>
+            <div className="flex flex-wrap gap-6 justify-start">
+              <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href="/contact">
+                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-gray-300 hover:bg-gray-100 text-gray-900">
+                <Link href="/about">Learn More</Link>
+              </Button>
+            </div>
           </div>
-        </section>
-      </AnimatedSection>
-      
+        </AnimatedSection>
+      </section>
+
       <AnimatedSection className="w-full max-w-6xl px-4 py-16" id="why-us">
-         <div className="text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">Why Choose Zianova?</h2>
           <p className="text-lg text-muted-foreground mt-2">We deliver excellence and innovation in every project.</p>
         </div>
@@ -67,7 +84,7 @@ export default function Home() {
               return (
                 <Card key={item.id} className="overflow-hidden group">
                   {image && (
-                     <div className="aspect-video overflow-hidden">
+                    <div className="aspect-video overflow-hidden">
                       <Image
                         src={image.imageUrl}
                         alt={item.title}
@@ -76,7 +93,7 @@ export default function Home() {
                         data-ai-hint={image.imageHint}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                     </div>
+                    </div>
                   )}
                   <CardHeader>
                     <CardTitle className="font-headline">{item.title}</CardTitle>

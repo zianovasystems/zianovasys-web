@@ -15,6 +15,8 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
+  { label: "Products", href: "/products" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -48,7 +50,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        
+
         <div className="flex flex-1 items-center justify-end">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -60,13 +62,13 @@ export function Header() {
             <SheetContent side="left">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b">
-                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Logo className="h-8 w-8 text-primary" />
-                      <span className="font-bold font-headline">Zianova</span>
-                   </Link>
-                   <Button variant="ghost" onClick={() => setIsMobileMenuOpen(false)}>
-                      <X className="h-6 w-6" />
-                   </Button>
+                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Logo className="h-8 w-8 text-primary" />
+                    <span className="font-bold font-headline">Zianova</span>
+                  </Link>
+                  <Button variant="ghost" onClick={() => setIsMobileMenuOpen(false)}>
+                    <X className="h-6 w-6" />
+                  </Button>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">
                   {navItems.map((item) => (
@@ -76,7 +78,7 @@ export function Header() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary",
-                         pathname === item.href ? "text-primary" : "text-foreground"
+                        pathname === item.href ? "text-primary" : "text-foreground"
                       )}
                     >
                       {item.label}
@@ -86,7 +88,7 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
-           <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <Button asChild>
               <Link href="/contact">Get a Quote</Link>
             </Button>
