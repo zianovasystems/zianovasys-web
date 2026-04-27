@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "What We Do",
+  description:
+    "AI & ML, custom software, cloud solutions, database management, business intelligence, and ERP/CRM systems — high-impact, AI-driven solutions for the enterprise.",
+  alternates: { canonical: "/what-we-do" },
+  openGraph: {
+    title: "What We Do | Zianova",
+    description: "High-impact, AI-driven solutions across six service areas.",
+    url: "/what-we-do",
+  },
+};
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { whatWeDoItems } from "@/lib/data";
 

@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Industries We Serve",
+  description:
+    "AI-driven solutions tailored for Healthcare, FinTech, eCommerce, Logistics, Real Estate, and Enterprise — driving efficiency and growth across sectors.",
+  alternates: { canonical: "/industries" },
+  openGraph: {
+    title: "Transforming Industries with AI | Zianova",
+    description: "Cutting-edge automation and machine learning across six industries.",
+    url: "/industries",
+  },
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Activity, ArrowRight, Banknote, Box, Building2, ShoppingCart, Truck } from "lucide-react";

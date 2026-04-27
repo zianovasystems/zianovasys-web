@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { CareerForm } from "@/components/career-form";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Careers",
+  description:
+    "Join Zianova and build the future of enterprise AI. We're hiring engineers, designers, and AI researchers who want to ship work with real-world impact.",
+  alternates: { canonical: "/careers" },
+  openGraph: {
+    title: "Careers at Zianova",
+    description: "Help build the future of enterprise AI.",
+    url: "/careers",
+  },
+};
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Code, Database, Globe } from "lucide-react";
 

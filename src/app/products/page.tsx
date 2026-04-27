@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description:
+    "MedisVoice and other AI-driven products from Zianova — purpose-built for high-stakes enterprise problems where intelligence creates the greatest impact.",
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title: "Products | Zianova",
+    description: "AI-driven solutions built for enterprise scale.",
+    url: "/products",
+  },
+};
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mic, FileCheck, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
 import Image from "next/image";

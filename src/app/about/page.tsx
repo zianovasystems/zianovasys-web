@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Zianova partners with organizations to design, build, and scale intelligent systems that optimize operations, enhance decision-making, and unlock measurable business value.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Zianova",
+    description: "Engineering the future, together — our mission, values, and team.",
+    url: "/about",
+  },
+};
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Handshake, Lightbulb, Rocket } from "lucide-react";
 import Image from "next/image";

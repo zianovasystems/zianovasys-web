@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Zianova AiGen Systems Pvt Ltd collects, uses, stores, and protects your personal data on zianovasys.com.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true },
+};
 
 export default function PrivacyPage() {
     return (

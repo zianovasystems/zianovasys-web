@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Case Studies",
+  description:
+    "Illustrative engagements across healthcare, eCommerce, and logistics — showing how AI-driven precision creates measurable business outcomes.",
+  alternates: { canonical: "/case-studies" },
+  openGraph: {
+    title: "Case Studies | Zianova",
+    description: "Measurable impact across enterprise systems.",
+    url: "/case-studies",
+  },
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
 import { ArrowRight, BarChart3, Clock, Zap } from "lucide-react";
@@ -62,6 +75,15 @@ export default function CaseStudiesPage() {
 
       <div className="container mx-auto px-4 section-padding">
         <AnimatedSection>
+          <div className="mb-10 rounded-2xl border border-amber-500/30 bg-amber-500/10 px-5 py-4 text-sm text-foreground/85">
+            <strong className="font-semibold text-foreground">Note:</strong>{" "}
+            The engagements below are <em>illustrative examples</em> demonstrating the
+            kinds of problems we solve. Real client engagements are confidential —
+            <a href="/contact" className="text-primary hover:underline ml-1">
+              get in touch
+            </a>{" "}
+            for relevant references.
+          </div>
           <div className="grid gap-8 md:gap-10">
             {caseStudies.map((study, index) => (
               <Card
@@ -69,6 +91,9 @@ export default function CaseStudiesPage() {
                 className="group overflow-hidden glass-card hover-lift relative"
               >
                 <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <span className="absolute top-4 right-4 z-10 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                  Illustrative
+                </span>
                 <div className="grid md:grid-cols-12 gap-0 relative">
                   <div className="md:col-span-8 p-8 md:p-10 flex flex-col justify-center">
                     <div className="flex items-center gap-2 mb-4">
