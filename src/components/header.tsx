@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import type { NavItem } from "@/lib/definitions";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Logo } from "./icons";
+import { Wordmark } from "./icons";
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
@@ -49,18 +49,22 @@ export function Header() {
     >
       <div className="container flex h-16 md:h-20 items-center">
         <div className="mr-4 flex">
-          <Link href="/" className="group mr-6 flex items-center space-x-2">
-            <motion.div
-              whileHover={{ rotate: 12, scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative"
+          <Link
+            href="/"
+            aria-label="Zianova home"
+            className="group mr-6 inline-flex items-center"
+          >
+            <motion.span
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 320, damping: 20 }}
+              className="relative inline-flex"
             >
-              <div className="absolute inset-0 rounded-full bg-primary/30 blur-md group-hover:blur-lg transition-all" />
-              <Logo className="relative h-9 w-9 text-primary" />
-            </motion.div>
-            <span className="font-headline font-extrabold text-lg tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Zianova
-            </span>
+              <span
+                aria-hidden
+                className="absolute -inset-1 rounded-2xl bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+              <Wordmark size="md" className="relative" />
+            </motion.span>
           </Link>
         </div>
 
@@ -134,9 +138,8 @@ export function Header() {
             <SheetContent side="right" className="w-full sm:w-96 border-l border-border/60 bg-background/95 backdrop-blur-xl">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between pb-6 border-b border-border/50">
-                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Logo className="h-8 w-8 text-primary" />
-                    <span className="font-headline font-extrabold text-lg">Zianova</span>
+                  <Link href="/" aria-label="Zianova home" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Wordmark size="md" />
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-1 mt-6">
