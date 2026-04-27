@@ -36,6 +36,8 @@ export function PageHero({
           src={backgroundImage}
           alt=""
           fill
+          sizes="100vw"
+          quality={75}
           className="object-cover"
           priority
         />

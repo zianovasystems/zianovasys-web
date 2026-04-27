@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { industries } from "@/lib/industries";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
@@ -13,49 +18,6 @@ export const metadata: Metadata = {
     url: "/industries",
   },
 };
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Activity, ArrowRight, Banknote, Box, Building2, ShoppingCart, Truck } from "lucide-react";
-import Link from "next/link";
-
-const industries = [
-  {
-    title: "Healthcare",
-    icon: Activity,
-    description:
-      "Empowering healthcare providers with AI-driven diagnostics, patient management systems, and interoperable EHR solutions to improve patient outcomes.",
-  },
-  {
-    title: "FinTech",
-    icon: Banknote,
-    description:
-      "Securing financial transactions with fraud detection AI, automating compliance, and building robust high-frequency trading platforms.",
-  },
-  {
-    title: "eCommerce",
-    icon: ShoppingCart,
-    description:
-      "Enhancing customer experiences through personalized recommendation engines, inventory optimization, and seamless omnichannel platforms.",
-  },
-  {
-    title: "Logistics",
-    icon: Truck,
-    description:
-      "Optimizing supply chains with predictive analytics, route optimization algorithms, and real-time fleet management systems.",
-  },
-  {
-    title: "Real Estate",
-    icon: Building2,
-    description:
-      "Transforming property management with smart building IoT integrations, virtual tours, and automated tenant services.",
-  },
-  {
-    title: "Enterprise",
-    icon: Box,
-    description:
-      "Streamlining operations for large organizations with custom ERPs, workflow automation, and data-driven decision support systems.",
-  },
-];
 
 export default function IndustriesPage() {
   return (
@@ -77,7 +39,7 @@ export default function IndustriesPage() {
           className="rounded-full h-14 px-8 bg-gradient-to-r from-primary to-accent shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all"
         >
           <Link href="/contact">
-            Discuss Your Industry Needs <ArrowRight className="ml-2 h-5 w-5" />
+            Discuss your industry needs <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>
       </PageHero>
@@ -85,24 +47,32 @@ export default function IndustriesPage() {
       <div className="container mx-auto px-4 section-padding">
         <AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {industries.map((item, index) => (
-              <Card
-                key={index}
-                className="group relative glass-card hover-lift overflow-hidden"
-              >
-                <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-                <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-2xl shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
-                    <item.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <CardTitle className="font-headline text-2xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {industries.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.slug}
+                  href={`/industries/${item.slug}`}
+                  aria-label={`Open ${item.title} industry detail`}
+                  className="group block h-full"
+                >
+                  <Card className="relative glass-card hover-lift overflow-hidden h-full">
+                    <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+                    <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <CardHeader className="flex flex-row items-center gap-4">
+                      <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-2xl shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                        <Icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <CardTitle className="font-headline text-2xl flex-1">{item.title}</CardTitle>
+                      <ArrowUpRight className="h-5 w-5 text-muted-foreground opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground leading-relaxed">{item.short}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </AnimatedSection>
       </div>

@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+import { industries } from "@/lib/industries";
+import { insightsPosts } from "@/lib/insights";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.zianovasys.com";
 
@@ -10,6 +12,7 @@ const routes = [
   { path: "/technology", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/products", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/what-we-do", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/insights", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" as const },
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
@@ -18,10 +21,26 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return routes.map((route) => ({
+  const baseEntries = routes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
     lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+
+  const industryEntries = industries.map((i) => ({
+    url: `${SITE_URL}/industries/${i.slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const insightEntries = insightsPosts.map((p) => ({
+    url: `${SITE_URL}/insights/${p.slug}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
+  return [...baseEntries, ...industryEntries, ...insightEntries];
 }

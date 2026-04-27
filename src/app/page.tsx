@@ -5,8 +5,9 @@ import { AnimatedSection, staggerItem } from "@/components/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { galleryItems, whyChooseUsItems } from "@/lib/data";
+import { industries } from "@/lib/industries";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { ArrowRight, CheckCircle2, Sparkles, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, Sparkles, Zap, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,6 +32,8 @@ export default function Home() {
             src="/images/imgi_117_rs=w_3070,m.webp"
             alt="Hero Background"
             fill
+            sizes="100vw"
+            quality={75}
             className="object-cover"
             priority
           />
@@ -160,6 +163,42 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* INDUSTRIES PREVIEW STRIP */}
+      <AnimatedSection className="w-full max-w-7xl px-4 pt-16 md:pt-20" id="industries-preview">
+        <div className="text-center mb-10">
+          <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+            Industries we serve
+          </span>
+          <h2 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tighter">
+            Domain expertise across <span className="text-gradient-static">6 sectors</span>
+          </h2>
+          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+            Pick the vertical you operate in to see the patterns we ship there.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+          {industries.map((ind) => {
+            const Icon = ind.icon;
+            return (
+              <Link
+                key={ind.slug}
+                href={`/industries/${ind.slug}`}
+                aria-label={`AI for ${ind.title}`}
+                className="group relative flex flex-col items-center justify-center gap-3 p-5 rounded-2xl glass-card hover-lift overflow-hidden"
+              >
+                <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+                <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-2xl shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                  <Icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <span className="text-sm font-semibold text-foreground/90 text-center">{ind.title}</span>
+                <ArrowUpRight className="absolute top-3 right-3 h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </Link>
+            );
+          })}
+        </div>
+      </AnimatedSection>
+
       {/* WHY CHOOSE US */}
       <AnimatedSection className="w-full max-w-7xl px-4 section-padding" id="why-us">
         <div className="text-center mb-16">
@@ -240,6 +279,7 @@ export default function Home() {
                             alt={item.title}
                             width={600}
                             height={400}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                             data-ai-hint={image.imageHint}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           />
