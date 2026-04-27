@@ -22,4 +22,6 @@ export type GalleryItem = {
   title: string;
   description: string;
   imageId: string;
+  href: string;
+  category: string;
 };

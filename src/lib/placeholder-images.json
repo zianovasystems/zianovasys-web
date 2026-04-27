@@ -2,39 +2,39 @@
   "placeholderImages": [
     {
       "id": "gallery-1",
-      "description": "A modern software dashboard interface.",
-      "imageUrl": "/images/ai-analytics-dashboard-v2.png",
-      "imageHint": "software interface"
+      "description": "AI-Powered Analytics dashboard illustration.",
+      "imageUrl": "/illustrations/analytics.svg",
+      "imageHint": "analytics dashboard"
     },
     {
       "id": "gallery-2",
-      "description": "Analytics chart showing data trends.",
-      "imageUrl": "/images/imgi_2_.webp",
-      "imageHint": "data analytics"
+      "description": "Predictive modeling neural network illustration.",
+      "imageUrl": "/illustrations/predictive.svg",
+      "imageHint": "neural network"
     },
     {
       "id": "gallery-3",
-      "description": "Mobile application with a clean UI.",
-      "imageUrl": "/images/imgi_3_.webp",
-      "imageHint": "mobile app"
+      "description": "Cross-platform devices illustration.",
+      "imageUrl": "/illustrations/cross-platform.svg",
+      "imageHint": "cross platform devices"
     },
     {
       "id": "gallery-4",
-      "description": "Cloud infrastructure diagram.",
-      "imageUrl": "/images/imgi_4_.webp",
-      "imageHint": "cloud infrastructure"
+      "description": "Cloud architecture illustration.",
+      "imageUrl": "/illustrations/cloud.svg",
+      "imageHint": "cloud architecture"
     },
     {
       "id": "gallery-5",
-      "description": "Lines of code on a dark screen.",
-      "imageUrl": "/images/imgi_5_.webp",
-      "imageHint": "code screen"
+      "description": "Developer API code editor illustration.",
+      "imageUrl": "/illustrations/api.svg",
+      "imageHint": "developer api"
     },
     {
       "id": "gallery-6",
-      "description": "Collaborative project management board.",
-      "imageUrl": "/images/agile-project-dashboard.png",
-      "imageHint": "project management"
+      "description": "Agile kanban board illustration.",
+      "imageUrl": "/illustrations/kanban.svg",
+      "imageHint": "kanban board"
     }
   ]
 }

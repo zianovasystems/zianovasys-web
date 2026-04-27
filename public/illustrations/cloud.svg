@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" role="img" aria-label="Scalable Cloud Architecture">
+  <defs>
+    <linearGradient id="clbg" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="cl" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#clbg)"/>
+  <circle cx="500" cy="320" r="120" fill="#22c55e" opacity="0.15"/>
+  <circle cx="80" cy="80" r="120" fill="#06b6d4" opacity="0.15"/>
+
+  <!-- cloud -->
+  <g transform="translate(170,60)">
+    <path d="M60 80 Q 60 30 110 30 Q 130 0 170 10 Q 220 0 230 50 Q 270 50 270 90 Q 270 130 220 130 H 90 Q 40 130 60 80 Z" fill="url(#cl)" opacity="0.95"/>
+    <text x="120" y="85" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">CLOUD</text>
+  </g>
+
+  <!-- connection lines -->
+  <g stroke="#22c55e" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4 4">
+    <line x1="220" y1="200" x2="120" y2="300"/>
+    <line x1="300" y1="200" x2="300" y2="300"/>
+    <line x1="380" y1="200" x2="480" y2="300"/>
+  </g>
+
+  <!-- servers -->
+  <g transform="translate(70,290)">
+    <rect width="100" height="80" rx="10" fill="#1e293b" stroke="#22c55e" stroke-opacity="0.5"/>
+    <rect x="10" y="14" width="80" height="14" rx="3" fill="#22c55e" opacity="0.8"/>
+    <rect x="10" y="34" width="80" height="14" rx="3" fill="#06b6d4" opacity="0.8"/>
+    <rect x="10" y="54" width="80" height="14" rx="3" fill="#a78bfa" opacity="0.8"/>
+    <text x="50" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9ca3af">API</text>
+  </g>
+  <g transform="translate(250,290)">
+    <rect width="100" height="80" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-opacity="0.5"/>
+    <circle cx="50" cy="40" r="22" fill="#06b6d4" opacity="0.6"/>
+    <circle cx="50" cy="40" r="14" fill="#22c55e" opacity="0.7"/>
+    <text x="50" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9ca3af">DATABASE</text>
+  </g>
+  <g transform="translate(430,290)">
+    <rect width="100" height="80" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-opacity="0.5"/>
+    <rect x="10" y="14" width="40" height="54" rx="4" fill="#a78bfa" opacity="0.5"/>
+    <rect x="54" y="14" width="36" height="26" rx="4" fill="#22c55e" opacity="0.7"/>
+    <rect x="54" y="44" width="36" height="24" rx="4" fill="#06b6d4" opacity="0.7"/>
+    <text x="50" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9ca3af">STORAGE</text>
+  </g>
+</svg>

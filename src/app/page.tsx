@@ -111,7 +111,7 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-base rounded-full border-border/60 bg-background/50 backdrop-blur-sm hover:bg-background/80"
+                className="h-14 px-8 text-base rounded-full border-border/60 bg-background/50 backdrop-blur-sm text-foreground hover:bg-background hover:text-foreground hover:border-primary"
               >
                 <Link href="/contact">Request Enterprise Consultation</Link>
               </Button>
@@ -225,34 +225,41 @@ export default function Home() {
                   transition={{ delay: idx * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -6 }}
                 >
-                  <Card className="group overflow-hidden h-full border-border/60 bg-card/60 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
-                    {image && (
-                      <div className="relative aspect-video overflow-hidden">
-                        <Image
-                          src={image.imageUrl}
-                          alt={item.title}
-                          width={600}
-                          height={400}
-                          data-ai-hint={image.imageHint}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                          <div className="bg-primary text-primary-foreground rounded-full p-3 shadow-xl">
-                            <ArrowRight className="h-4 w-4" />
+                  <Link href={item.href} aria-label={`View ${item.title}`} className="block h-full">
+                    <Card className="group cursor-pointer overflow-hidden h-full border-border/60 bg-card/60 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+                      {image && (
+                        <div className="relative aspect-video overflow-hidden bg-slate-900">
+                          <Image
+                            src={image.imageUrl}
+                            alt={item.title}
+                            width={600}
+                            height={400}
+                            data-ai-hint={image.imageHint}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div className="absolute top-3 left-3">
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/60 text-xs font-semibold text-foreground/90">
+                              {item.category}
+                            </span>
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                            <div className="bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-full p-3 shadow-xl">
+                              <ArrowRight className="h-4 w-4" />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    <CardHeader>
-                      <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
-                        {item.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                    </CardContent>
-                  </Card>
+                      )}
+                      <CardHeader>
+                        <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
+                          {item.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </motion.div>
               );
             })}
