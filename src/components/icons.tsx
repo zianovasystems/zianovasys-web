@@ -1,21 +1,73 @@
-export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      d="M25 5L7 5L25 27L7 27"
-      stroke="currentColor"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+import * as React from "react";
+import { cn } from "@/lib/utils";
+
+/**
+ * Zianova Mark — the "AI Pulse Z" symbol. Use in tight spaces, favicons,
+ * mobile collapsed states, and as the lead-in for the Wordmark lockup.
+ */
+export const Logo = ({
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>) => {
+  const id = React.useId();
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Zianova"
+      className={cn("h-8 w-8", className)}
+      {...props}
+    >
+      <defs>
+        <linearGradient id={`zg-${id}`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+          <stop stopColor="hsl(var(--primary))" />
+          <stop offset="1" stopColor="hsl(var(--accent))" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="hsl(var(--foreground))" />
+      <path
+        d="M16 16 H48 L20 48 H48"
+        fill="none"
+        stroke={`url(#zg-${id})`}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="48" cy="16" r="3.5" fill="hsl(var(--primary))" />
+    </svg>
+  );
+};
+
+/**
+ * Zianova Wordmark — Mark + "Zianova" lockup with gradient under "nova".
+ * Default brand lockup for header / footer / large surfaces.
+ */
+export const Wordmark = ({
+  className,
+  size = "md",
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement> & { size?: "sm" | "md" | "lg" }) => {
+  const sizes = {
+    sm: { mark: "h-7 w-7", text: "text-base" },
+    md: { mark: "h-9 w-9", text: "text-lg" },
+    lg: { mark: "h-11 w-11", text: "text-2xl" },
+  } as const;
+  const s = sizes[size];
+  return (
+    <span
+      className={cn("inline-flex items-center gap-2.5 select-none", className)}
+      {...props}
+    >
+      <Logo className={s.mark} />
+      <span className={cn("font-headline font-extrabold tracking-tight leading-none", s.text)}>
+        Zia
+        <span className="text-gradient-static">nova</span>
+      </span>
+    </span>
+  );
+};
 
 export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg

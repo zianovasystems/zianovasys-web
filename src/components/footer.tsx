@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, MapPin, Mail } from "lucide-react";
-import { FacebookIcon, InstagramIcon, LinkedInIcon, Logo, XIcon, YoutubeIcon } from "./icons";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, Wordmark, XIcon, YoutubeIcon } from "./icons";
 
 const socials = [
   { Icon: FacebookIcon, href: "https://www.facebook.com/share/15eSV8mCi9/", color: "hover:text-blue-600", label: "Facebook" },
@@ -18,12 +18,8 @@ export function Footer() {
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-2 md:col-span-1 space-y-5">
-            <Link href="/" className="group flex items-center space-x-2">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-primary/30 blur-md group-hover:blur-lg transition-all" />
-                <Logo className="relative h-9 w-9 text-primary" />
-              </div>
-              <span className="font-headline font-extrabold text-lg tracking-tight">Zianova</span>
+            <Link href="/" aria-label="Zianova home" className="group inline-flex">
+              <Wordmark size="md" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               AI-Driven Precision for Enterprise Systems. We solve complex business problems with AI-powered software.
