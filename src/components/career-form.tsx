@@ -122,8 +122,13 @@ export function CareerForm() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
-                    Submit Application
+                <Button
+                    type="submit"
+                    size="lg"
+                    disabled={form.formState.isSubmitting}
+                    className="w-full h-12 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+                >
+                    {form.formState.isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
             </form>
         </Form>
