@@ -36,13 +36,17 @@ export function PageHero({
           src={backgroundImage}
           alt=""
           fill
-          className="object-cover opacity-90 dark:opacity-30 brightness-75 dark:brightness-100"
+          className="object-cover"
           priority
         />
       </div>
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/30 via-background/70 to-background" />
-      <div className="absolute inset-0 -z-10 bg-grid opacity-30" />
+      {/* Subtle dark gradient for text readability — left-weighted, fades right */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/55 to-slate-950/25" />
+      {/* Soft top-down accent for depth */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/50" />
+      {/* Bottom fade into page background so the section blends */}
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-b from-transparent to-background" />
 
       <motion.div
         className="absolute top-10 right-1/4 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
@@ -70,7 +74,7 @@ export function PageHero({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
               className={cn(
-                "inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full glass border border-primary/20 text-sm font-semibold text-primary"
+                "inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white shadow-lg shadow-black/10"
               )}
             >
               <span className="relative flex h-2 w-2">
@@ -85,7 +89,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-balance text-foreground"
+            className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-balance text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
           >
             {title}
           </motion.h1>
@@ -95,7 +99,7 @@ export function PageHero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-8 mx-auto"
+              className="text-lg md:text-xl text-slate-200 max-w-3xl leading-relaxed mb-8 mx-auto drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
             >
               {subtitle}
             </motion.div>
