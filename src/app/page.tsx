@@ -31,13 +31,16 @@ export default function Home() {
             src="/images/imgi_117_rs=w_3070,m.webp"
             alt="Hero Background"
             fill
-            className="object-cover opacity-90 dark:opacity-30 brightness-90"
+            className="object-cover"
             priority
           />
         </div>
 
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/85 to-background/30 dark:from-background dark:via-background/90 dark:to-background/40" />
-        <div className="absolute inset-0 -z-10 bg-grid opacity-30" />
+        {/* Left-weighted dark gradient for readability without washing out the image */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/55 to-slate-950/20" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/40" />
+        {/* Bottom fade so the hero blends into the page background */}
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-background" />
 
         {/* Floating decorative orbs */}
         <motion.div
@@ -62,20 +65,20 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass border border-primary/20 text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium shadow-lg shadow-black/10"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span className="text-foreground/80">AI-Powered Enterprise Solutions</span>
+              <span className="text-white/90">AI-Powered Enterprise Solutions</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 leading-[1.05] text-balance"
+              className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 leading-[1.05] text-balance text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
             >
               Solving Complex{" "}
               <span className="text-gradient">Enterprise Problems</span>
@@ -86,7 +89,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="max-w-2xl text-lg md:text-2xl text-muted-foreground mb-10 leading-relaxed"
+              className="max-w-2xl text-lg md:text-2xl text-slate-200 mb-10 leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
             >
               Zianova delivers AI-powered, high-precision solutions that address complex business and engineering challenges across industries — from strategy to scalable implementation.
             </motion.p>
@@ -111,7 +114,7 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-base rounded-full border-border/60 bg-background/50 backdrop-blur-sm text-foreground hover:bg-background hover:text-foreground hover:border-primary"
+                className="h-14 px-8 text-base rounded-full border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 hover:text-white hover:border-white/60"
               >
                 <Link href="/contact">Request Enterprise Consultation</Link>
               </Button>
@@ -125,11 +128,14 @@ export default function Home() {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 max-w-3xl"
             >
               {stats.map((stat, i) => (
-                <div key={i} className="glass rounded-2xl p-4 md:p-5 text-center md:text-left">
+                <div
+                  key={i}
+                  className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-5 text-center md:text-left shadow-lg shadow-black/10"
+                >
                   <div className="text-2xl md:text-3xl font-headline font-extrabold text-gradient-static">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-slate-200 mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -143,11 +149,11 @@ export default function Home() {
           transition={{ delay: 1.4, duration: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">Scroll</span>
+          <span className="text-xs uppercase tracking-widest text-slate-300">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="h-10 w-6 rounded-full border-2 border-muted-foreground/40 flex justify-center pt-2"
+            className="h-10 w-6 rounded-full border-2 border-slate-300/40 flex justify-center pt-2"
           >
             <span className="block h-2 w-1 rounded-full bg-primary" />
           </motion.div>
