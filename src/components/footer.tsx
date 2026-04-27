@@ -111,12 +111,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 mt-8 border-t border-border/40 gap-3">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
+        <div className="pt-8 mt-8 border-t border-border/40">
+          <p className="text-sm text-muted-foreground text-center">
             © {new Date().getFullYear()} <span className="font-semibold text-foreground">Zianova AiGen Systems Pvt Ltd.</span> All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Crafted with <span className="text-primary">precision</span> in Hyderabad, India.
           </p>
         </div>
       </div>

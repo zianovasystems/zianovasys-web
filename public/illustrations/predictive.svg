@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" role="img" aria-label="Predictive Modeling neural network">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#064e3b"/>
+    </linearGradient>
+    <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+      <stop stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#pbg)"/>
+  <circle cx="80" cy="320" r="120" fill="#22c55e" opacity="0.15"/>
+  <circle cx="540" cy="80" r="120" fill="#06b6d4" opacity="0.15"/>
+
+  <!-- connections -->
+  <g stroke="#22c55e" stroke-opacity="0.35" stroke-width="1.4">
+    <line x1="120" y1="120" x2="270" y2="80"/>
+    <line x1="120" y1="120" x2="270" y2="200"/>
+    <line x1="120" y1="120" x2="270" y2="320"/>
+    <line x1="120" y1="200" x2="270" y2="80"/>
+    <line x1="120" y1="200" x2="270" y2="200"/>
+    <line x1="120" y1="200" x2="270" y2="320"/>
+    <line x1="120" y1="280" x2="270" y2="80"/>
+    <line x1="120" y1="280" x2="270" y2="200"/>
+    <line x1="120" y1="280" x2="270" y2="320"/>
+    <line x1="270" y1="80" x2="430" y2="140"/>
+    <line x1="270" y1="80" x2="430" y2="260"/>
+    <line x1="270" y1="200" x2="430" y2="140"/>
+    <line x1="270" y1="200" x2="430" y2="260"/>
+    <line x1="270" y1="320" x2="430" y2="140"/>
+    <line x1="270" y1="320" x2="430" y2="260"/>
+    <line x1="430" y1="140" x2="540" y2="200"/>
+    <line x1="430" y1="260" x2="540" y2="200"/>
+  </g>
+
+  <!-- input nodes -->
+  <g>
+    <circle cx="120" cy="120" r="14" fill="url(#node)"/>
+    <circle cx="120" cy="200" r="14" fill="url(#node)"/>
+    <circle cx="120" cy="280" r="14" fill="url(#node)"/>
+  </g>
+  <!-- hidden 1 -->
+  <g>
+    <circle cx="270" cy="80" r="16" fill="#06b6d4"/>
+    <circle cx="270" cy="200" r="16" fill="#06b6d4"/>
+    <circle cx="270" cy="320" r="16" fill="#06b6d4"/>
+  </g>
+  <!-- hidden 2 -->
+  <g>
+    <circle cx="430" cy="140" r="18" fill="#a78bfa"/>
+    <circle cx="430" cy="260" r="18" fill="#a78bfa"/>
+  </g>
+  <!-- output -->
+  <circle cx="540" cy="200" r="22" fill="#22c55e"/>
+  <circle cx="540" cy="200" r="34" fill="none" stroke="#22c55e" stroke-opacity="0.4" stroke-width="2"/>
+  <circle cx="540" cy="200" r="48" fill="none" stroke="#22c55e" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- labels -->
+  <g font-family="Inter,system-ui,sans-serif" fill="#fff" opacity="0.6" font-size="11">
+    <text x="60" y="60">Input layer</text>
+    <text x="232" y="48">Hidden layers</text>
+    <text x="500" y="160">Output</text>
+  </g>
+</svg>
