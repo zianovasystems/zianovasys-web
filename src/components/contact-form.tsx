@@ -105,7 +105,12 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting || isPending}>
+        <Button
+          type="submit"
+          size="lg"
+          disabled={form.formState.isSubmitting || isPending}
+          className="w-full h-12 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+        >
           {isPending ? "Sending..." : "Send Message"}
         </Button>
       </form>

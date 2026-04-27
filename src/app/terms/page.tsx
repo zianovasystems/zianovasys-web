@@ -2,10 +2,15 @@ import { AnimatedSection } from "@/components/animated-section";
 
 export default function TermsPage() {
     return (
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
+        <div className="container mx-auto px-4 section-padding max-w-4xl">
             <AnimatedSection>
-                <h1 className="text-4xl font-bold font-headline mb-8">Terms of Service</h1>
-                <div className="prose dark:prose-invert max-w-none space-y-4">
+                <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+                    Legal
+                </span>
+                <h1 className="text-5xl md:text-6xl font-extrabold font-headline tracking-tighter mb-8">
+                    Terms of <span className="text-gradient-static">Service</span>
+                </h1>
+                <div className="prose dark:prose-invert max-w-none space-y-4 text-foreground/80 leading-relaxed">
                     <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
                     <p>
                         Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the zianovasys.com website (the "Service") operated by Zianova AiGen Systems Pvt Ltd ("us", "we", or "our").
