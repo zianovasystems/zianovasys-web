@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Technology",
+  description:
+    "Modern, secure, and scalable architecture: distributed microservices, AI-enabled pipelines, cloud-native infrastructure across Java, Python, Node.js, AWS, GCP, and Kubernetes.",
+  alternates: { canonical: "/technology" },
+  openGraph: {
+    title: "Technology Stack | Zianova",
+    description: "Modern, secure, and scalable architecture.",
+    url: "/technology",
+  },
+};
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cloud, Code2, Database, Layers, Lock, Server } from "lucide-react";
 

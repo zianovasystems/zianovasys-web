@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Tell us about your project. Email info@zianovasys.com or send a message — we typically reply within one business day.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Zianova",
+    description: "Have a project in mind? We'd love to hear from you.",
+    url: "/contact",
+  },
+};
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, MapPin } from "lucide-react";
 

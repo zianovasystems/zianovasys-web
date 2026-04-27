@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "The terms governing your access to and use of Zianova AiGen Systems' website and services.",
+  alternates: { canonical: "/terms" },
+  robots: { index: true, follow: true },
+};
 
 export default function TermsPage() {
     return (
