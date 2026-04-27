@@ -60,6 +60,7 @@ export default function AboutPage() {
                   alt="Our Team"
                   width={800}
                   height={600}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover w-full transition-transform duration-700 group-hover:scale-105"
                   data-ai-hint="team business"
                 />

@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Technology", href: "/technology" },
   { label: "Products", href: "/products" },
+  { label: "Insights", href: "/insights" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
